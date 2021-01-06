@@ -1,0 +1,466 @@
+//--------------- Bootstrap Imports ---------------//
+@import "../bootstrap/scss/_functions.scss";
+@import "../bootstrap/scss/_variables.scss";
+@import "../bootstrap/scss/mixins/_breakpoints.scss";
+
+//--------------- Colour Scheme ---------------//
+$background_lighter: #ffffff; //#fff7e6;
+$background_light: #d6dbdf;
+$background_dark: #aeb6bf;
+$background_darker: #73737e;
+$accent: #c29361;
+
+$white: #fdfefe;
+$grey: #7d7a7b;
+$black: #2a1b24;
+$blue: #1B1464;
+
+
+  //--------------- Devices Breakpoints ---------------//
+// Small tablets and large smartphones (landscape view)
+$phone-max: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+body {
+  font-family: sans-serif;
+  background-color: #eaeff1;
+}
+
+//--------------- General Containers ---------------//
+header {
+  display: flex;
+  width: 100%;
+  height: min-content;
+  //background-color: #eaeff1; // #3f270d;
+  margin-top: 3%;
+  margin-bottom: 8%;
+
+  #nav_container {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+  }
+
+  nav {
+    background-color: $accent;
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+    padding: 10px 50px 10px 50px;
+    max-height: 60px;
+    width: 70%;
+
+    .title {
+      display: flex;
+      text-decoration: none;
+      img {
+        width: 50px;
+        margin-right: 25px;
+      }
+    }
+
+    h1 {
+      display: none;
+      font-size: 1.2em;
+
+      @include media-breakpoint-up(md) {
+        display: flex;
+        margin: auto;
+        margin-right: 50px;
+        font-family: "Arial Black";
+        color: white;
+        min-width: 200px;
+      }
+
+    }
+
+    .active {
+      border-bottom: solid 3px $black;
+    }
+
+    div {
+      min-width: min-content;
+      max-width: 200px;
+      display: flex;
+      align-items: center;
+      height: 60px;
+      padding: 0px 5px 0px 5px;
+
+      @include media-breakpoint-up(md) {
+        margin: auto;
+        padding: 0px 10px 0px 10px;
+        height: 100%;
+      }
+
+
+      a {
+        font-size: 0.8em;
+        font-variant: all-small-caps;
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+        white-space: nowrap;
+        @include media-breakpoint-up(md) {
+          font-size: 1em;
+        }
+      }
+    }
+
+    div:hover ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      li {
+        padding: 10px;
+      }
+    }
+
+    ul {
+      position: fixed;
+      list-style: none;
+      padding: 10px;
+      display: none;
+      background-color: $accent;
+      top: 60px;
+      right: 5%;
+
+      @include media-breakpoint-up(lg) {
+        top: 70px;
+        right: 40px;
+      }
+
+      @include media-breakpoint-up(lg) {
+        top: 80px;
+        right: 50px;
+      }
+
+
+    }
+
+  }
+}
+
+#footer {
+  margin-top: 50px;
+  height: 200px;
+  background-color: $background_dark;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  #pageTop {
+    color: $background_lighter;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  #pageTop:hover {
+    text-decoration: underline;
+  }
+
+  #socials_container {
+    margin-top: 10px;
+    width: 140px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @mixin socials($bgColor, $bgOpacity) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    height: 40px;
+    width: 40px;
+    background-color: #{$bgColor}#{$bgOpacity};
+  }
+
+  #fb {
+    @include socials(#4267B2, 4 D)
+  }
+
+  #yt {
+    @include socials(#FF0000, 4 D)
+  }
+
+  #ig {
+    @include socials(#f77737, 4 D)
+  }
+
+  #fb:hover {
+    @include socials(#4267B2, CC)
+  }
+
+  #yt:hover {
+    @include socials(#FF0000, CC)
+  }
+
+  #ig:hover {
+    @include socials(#f77737, CC)
+  }
+}
+
+//--------------- accueil.html ---------------//
+#home_container {
+  display: flex;
+  padding: 0 7% 5% 7%;
+  height: 500px;
+
+  * {
+    padding: 20px;
+  }
+
+  .coordonnees {
+    width: 20%;
+    border: 5px solid white;
+    border-left: none;
+    background-color: $blue;
+    color: white;
+    height: 100%;
+  }
+
+  .article {
+    border: 5px solid $blue;
+    border-right: none;
+    width: 65%;
+    min-height: min-content;
+    height: 100%;
+    background-color: white;
+  }
+
+  h2 {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+
+}
+
+//--------------- joueurs.html ---------------//
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 70px;
+  @include media-breakpoint-up(md) {
+
+    margin: 100px auto auto;
+    border: 2px solid $accent;
+    width: 90%;
+    box-shadow: -20px -20px $black;
+  }
+
+
+  td {
+    padding: 5px;
+    @include media-breakpoint-up(md) {
+      padding: 10px;
+    }
+    @include media-breakpoint-up(lg) {
+      padding: 20px;
+    }
+  }
+
+  img {
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    transition-property: height, width;
+    transition-duration: 0.5s;
+    outline: 5px solid #FFFFFF66;
+    outline-offset: -5px;
+    @include media-breakpoint-up(md) {
+      width: 200px;
+      height: 200px;
+      outline: 10px solid #FFFFFF66;
+      outline-offset: -10px;
+    }
+    @include media-breakpoint-up(lg) {
+      object-fit: cover;
+      width: 300px;
+      height: 300px;
+      outline: 20px solid #FFFFFF66;
+      outline-offset: -20px;
+    }
+  }
+
+  tr {
+    background-color: $background_dark;
+    color: $background_lighter;
+    border: none;
+    font-size: 0.8em;
+    width: min-content;
+    height: 350px;
+    @include media-breakpoint-up(md) {
+      background-color: $background_lighter;
+      font-size: 1em;
+      color: $black;
+    }
+  }
+
+  tr:nth-child(even) {
+    background-color: $background_darker;
+    @include media-breakpoint-up(md) {
+      background-color: $white;
+    }
+  }
+
+  tr:hover {
+    background-color: $black;
+    @include media-breakpoint-up(md) {
+      background-color: $background_light;
+    }
+
+  }
+
+  tr td:first-child {
+    font-weight: bold;
+    max-width: 180px;
+    color: white;
+    @include media-breakpoint-up(md) {
+      font-size: 1.5em;
+      color: $black;
+    }
+    @include media-breakpoint-up(lg) {
+      font-size: 2em;
+      color: $black;
+    }
+  }
+
+  #table_header {
+    background-color: $black;
+    border: none;
+    font-weight: lighter;
+    font-variant: all-small-caps;
+    height: 20px;
+    @include media-breakpoint-up(md) {
+      background-color: $background_light;
+      padding: 5px;
+    }
+  }
+}
+
+.zoom_animation {
+  img {
+    width: 500px;
+    height: 500px;
+    transition-duration: 0.5s;
+  }
+}
+
+
+.modal {
+  width: 300px;
+  height: 300px;
+  position: sticky;
+  background-color: white;
+}
+
+#ModalAjouter {
+  background-color: $background_darker;
+
+  td {
+    text-align: center;
+    min-height: 150px;
+  }
+
+  #imagetd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #previewImage {
+    width: 100px;
+    height: 100px;
+    outline: none;
+  }
+
+  #inputBio {
+    height: 100px;
+  }
+
+  #inputImage {
+    width: 50%;
+  }
+}
+
+.modalClose {
+  display: none;
+
+  * {
+    display: none;
+  }
+}
+
+//--------------- ambiance.html, moments.html ---------------//
+
+#media_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  div {
+    color: $white;
+    padding: 20px;
+    margin: 10px;
+    background-color: $black;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    min-width: min-content;
+    min-height: min-content;
+    height: min-content;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img {
+    width: 300px;
+  }
+
+  .media_title {
+    font-weight: bolder;
+    font-size: 1.1em;
+    text-transform: uppercase;
+  }
+
+  .media_description {
+    text-align: justify;
+  }
+
+  input {
+    margin: 10px 0px 20px 0px;
+  }
+
+  #dashboard {
+    opacity: 0.2;
+
+    button {
+      min-height: 30px;
+      margin: 10px;
+    }
+  }
+}
+
+
+
